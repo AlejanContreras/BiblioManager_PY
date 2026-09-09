@@ -1,0 +1,7 @@
+1,1,Calculo I,1,Baldor,Matematicas
+1,0,Calculo I,2,Baldor,Matematicas
+1,1,El Principe,3,Maquiavelo,Politica
+1,0,Fisica I,4,Serway,Ciencias
+1,1,Fisica I,5,Serway,Fisica
+1,0,Etica a Nicomaco,6,Aristoteles,Filosofia
+1,0,Algebra Lineal,7,Grossman,Matematicas

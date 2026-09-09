@@ -1,0 +1,4 @@
+1,Calculo I,1,Baldor,Matematicas
+0,Calculo I,2,Baldor,Matematicas
+1,El Principe,3,Maquiavelo,Politica
+0,Fisica I,4,Serway,Ciencias

@@ -1,0 +1,3 @@
+0,Etica a Nicomaco,6,Aristoteles,Filosofia
+0,Algebra Lineal,7,Grossman,Matematicas
+1,Fisica I,5,Serway,Fisica

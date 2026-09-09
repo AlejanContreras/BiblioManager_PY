@@ -1,0 +1,7 @@
+0Calculo I                     0001Baldor              Matematicas    
+0Calculo I                     0002Baldor              Matematicas    
+1El Principe                   0003Maquiavelo          Politica       
+0Fisica I                      0004Serway              Ciencias       
+1Fisica I                      0005Serway              Fisica         
+0Etica a Nicomaco              0006Aristoteles         Filosofia      
+0Algebra Lineal                0007Grossman            Matematicas    
