@@ -1,0 +1,11 @@
+# Biblio Manager - dependencias del proyecto
+#
+# El proyecto (Corte 1 y Corte 2) solo usa la biblioteca estandar de
+# Python (modulo "open" para archivos, sin paquetes externos). Por eso
+# este archivo no lista ninguna dependencia: basta con tener instalado
+# Python 3.10 o superior para ejecutar cualquiera de los scripts.
+#
+# Si en un corte futuro se agrega alguna dependencia externa (por
+# ejemplo, para la interfaz web), se debera agregar aqui con su version
+# exacta, por ejemplo:
+#   flask==3.0.0

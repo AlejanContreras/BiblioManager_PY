@@ -1,0 +1,14 @@
+0;Biblioteca
+1;Matematicas
+2;Calculo I
+3;Ejemplar 1 - Baldor - Prestado
+3;Ejemplar 2 - Baldor - Disponible
+2;Algebra Lineal
+3;Ejemplar 7 - Grossman - Disponible
+1;Fisica
+2;Fisica I
+3;Ejemplar 4 - Serway - Disponible
+3;Ejemplar 5 - Serway - Prestado
+1;Filosofia
+2;Etica a Nicomaco
+3;Ejemplar 6 - Aristoteles - Disponible
