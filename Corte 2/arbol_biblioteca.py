@@ -10,9 +10,6 @@ class Nodo:
     def agregar_hijo(self, nodo_hijo):
         self.hijos.append(nodo_hijo)
 
-    def __repr__(self):
-        return f"Nodo({self.dato})"
-
 
 def buscar_hijo_directo(nodo_padre, dato_buscado):
     for hijo in nodo_padre.hijos:
@@ -161,67 +158,55 @@ def cargar_arbol(ruta_archivo=ARCHIVO_ARBOL):
     return raiz
 
 
-def verificar_persistencia(raiz_original, ruta_archivo=ARCHIVO_ARBOL):
-    guardar_arbol(raiz_original, ruta_archivo)
-    raiz_recargada = cargar_arbol(ruta_archivo)
+print("=" * 70)
+print("1) CONSTRUCCION DEL ARBOL DESDE EL CATALOGO (ejemplares.txt)")
+print("=" * 70)
+arbol = construir_arbol_desde_catalogo()
+mostrar(arbol)
 
-    original = recorrido_preorden(raiz_original)
-    recargado = recorrido_preorden(raiz_recargada)
-    coincide = original == recargado
+print("\n" + "=" * 70)
+print("2) ALTURA Y CONTEO DE NODOS / HOJAS")
+print("=" * 70)
+print("Altura del arbol:", calcular_altura(arbol))
+print("Numero total de nodos:", contar_nodos(arbol))
+print("Numero de hojas (ejemplares):", contar_hojas(arbol))
 
-    print("\nVERIFICACION DE PERSISTENCIA")
-    if coincide:
-        print(f"OK -> el arbol recargado desde '{ruta_archivo}' coincide "
-              f"exactamente con el arbol guardado ({len(original)} nodos).")
-    else:
-        print("ERROR -> el arbol recargado NO coincide con el original.")
-    return coincide
+print("\n" + "=" * 70)
+print("3) RECORRIDO PREORDEN")
+print("=" * 70)
+for nivel, dato in recorrido_preorden(arbol):
+    print("  " * nivel + dato)
 
+print("\n" + "=" * 70)
+print("4) RECORRIDO POSTORDEN")
+print("=" * 70)
+for nivel, dato in recorrido_postorden(arbol):
+    print("  " * nivel + dato)
 
-if __name__ == "__main__":
+print("\n" + "=" * 70)
+print("5) BUSQUEDA")
+print("=" * 70)
+print("Buscar 'Fisica I':", buscar(arbol, "Fisica I"), "- nivel", nivel_de(arbol, "Fisica I"))
+print("Buscar 'Quimica II' (no existe):", buscar(arbol, "Quimica II"))
 
-    print("=" * 70)
-    print("1) CONSTRUCCION DEL ARBOL DESDE EL CATALOGO (ejemplares.txt)")
-    print("=" * 70)
-    arbol = construir_arbol_desde_catalogo()
-    mostrar(arbol)
+print("\n" + "=" * 70)
+print("6) ELIMINACION DE UN NODO (con todo su subarbol)")
+print("=" * 70)
+print("Antes de eliminar la categoria 'Politica':")
+mostrar(arbol)
+eliminar_nodo(arbol, "Politica")
+print("\nDespues de eliminar la categoria 'Politica' (se va 'El Principe' y su ejemplar):")
+mostrar(arbol)
+print("Numero total de nodos tras la eliminacion:", contar_nodos(arbol))
 
-    print("\n" + "=" * 70)
-    print("2) ALTURA Y CONTEO DE NODOS / HOJAS")
-    print("=" * 70)
-    print("Altura del arbol:", calcular_altura(arbol))
-    print("Numero total de nodos:", contar_nodos(arbol))
-    print("Numero de hojas (ejemplares):", contar_hojas(arbol))
+print("\n" + "=" * 70)
+print("7) PERSISTENCIA: GUARDAR Y CARGAR EL ARBOL")
+print("=" * 70)
+print("Arbol original (en memoria):\n")
+mostrar(arbol)
 
-    print("\n" + "=" * 70)
-    print("3) RECORRIDO PREORDEN")
-    print("=" * 70)
-    for nivel, dato in recorrido_preorden(arbol):
-        print("  " * nivel + dato)
+guardar_arbol(arbol)
 
-    print("\n" + "=" * 70)
-    print("4) RECORRIDO POSTORDEN")
-    print("=" * 70)
-    for nivel, dato in recorrido_postorden(arbol):
-        print("  " * nivel + dato)
-
-    print("\n" + "=" * 70)
-    print("5) BUSQUEDA")
-    print("=" * 70)
-    print("Buscar 'Fisica I':", buscar(arbol, "Fisica I"), "- nivel", nivel_de(arbol, "Fisica I"))
-    print("Buscar 'Quimica II' (no existe):", buscar(arbol, "Quimica II"))
-
-    print("\n" + "=" * 70)
-    print("6) ELIMINACION DE UN NODO (con todo su subarbol)")
-    print("=" * 70)
-    print("Antes de eliminar la categoria 'Politica':")
-    mostrar(arbol)
-    eliminar_nodo(arbol, "Politica")
-    print("\nDespues de eliminar la categoria 'Politica' (se va 'El Principe' y su ejemplar):")
-    mostrar(arbol)
-    print("Numero total de nodos tras la eliminacion:", contar_nodos(arbol))
-
-    print("\n" + "=" * 70)
-    print("7) PERSISTENCIA Y VERIFICACION")
-    print("=" * 70)
-    verificar_persistencia(arbol)
+arbol_recuperado = cargar_arbol()
+print("\nArbol recuperado desde 'arbol_categorias.txt':\n")
+mostrar(arbol_recuperado)
